@@ -45,9 +45,7 @@ export class UserService {
   }
 
   getAllUsers(): UserResponse[] {
-    const users = this.users;
-
-    return users.map((user) => ({
+    return this.users.map((user) => ({
       id: user.id,
       login: user.login,
       version: user.version,
