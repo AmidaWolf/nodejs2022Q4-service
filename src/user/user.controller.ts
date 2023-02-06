@@ -35,7 +35,7 @@ export class UserController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @UsePipes(new ValidationPipe())
-  createUser(@Body() createUserDto: CreateUserDto) {
+  createUser(@Body() createUserDto: CreateUserDto): UserResponse {
     return this.userService.createUser(createUserDto);
   }
 
