@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class TrackService {
-  private readonly tracks: Track[] = [];
+  readonly tracks: Track[] = [];
 
   private validateId(id: string) {
     if (!isUUID(id)) {
@@ -82,12 +82,12 @@ export class TrackService {
   removeTrack(id: string) {
     this.validateId(id);
 
-    const foundUserIndex = this.tracks.findIndex((user) => user.id === id);
+    const foundTrackIndex = this.tracks.findIndex((track) => track.id === id);
 
-    if (foundUserIndex === -1) {
+    if (foundTrackIndex === -1) {
       throw new NotFoundException(`Track with id ${id} not found.`);
     }
 
-    this.tracks.splice(foundUserIndex, 1);
+    this.tracks.splice(foundTrackIndex, 1);
   }
 }
