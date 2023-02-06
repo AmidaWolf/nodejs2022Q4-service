@@ -11,7 +11,7 @@ import { TrackService } from '../track/track.service';
 
 @Injectable()
 export class ArtistService {
-  private readonly artists: Artist[] = [];
+  readonly artists: Artist[] = [];
   @Inject(TrackService)
   private trackService: TrackService;
   private validateId(id: string) {
